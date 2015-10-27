@@ -13,7 +13,7 @@ API_URL = {
     'production':'https://api.adsabs.harvard.edu'
 }
 
-SERVICES = ['metrics', 'graphics', 'recommender', 'orcid', 'biblib']
+SERVICES = ['metrics', 'graphics', 'recommender', 'orcid', 'biblib', 'export']
 
 class AdsAws(BotPlugin):
     """
@@ -157,7 +157,7 @@ class AdsAws(BotPlugin):
             return {'service': '', 'data': [], 'error':err_msg}
 
         if args[0].strip() == 'list':
-            return {'services_list':",".join(SERVICES)}
+            return {'services_list':", ".join(SERVICES)}
         data = get_ecs_service_status(*args)
         return {'service':args[0], 'data':data}
 
